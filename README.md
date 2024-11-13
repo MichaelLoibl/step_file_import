@@ -3,17 +3,19 @@
 --------------------------------------------------------------------
 
 ## TABLE OF CONTENTS <a name="table-of-contents"></a>
-1. [CONTACT](#contact)
-1. [SCOPE OF THE IMPORT](#scope)
-2. [EXPORT OF .STEP FILES FROM CAD](#export)
-    1. [EXPORT WITH RHINO 7](#export_rhino)
-3. [HOW TO START](#start)
-4. [PROVIDED FUNCTIONS](#functions)
+1. [TABLE OF CONTENTS ](#table-of-contents-)
+2. [CONTACT](#contact)
+3. [SCOPE OF THE IMPORT ](#scope-of-the-import-)
+4. [GET STARTED ](#get-started-)
+5. [EXPORT OF .STEP FILES FROM CAD](#export-of-step-files-from-cad)
+	1. [EXPORT WITH RHINO 7 ](#export-with-rhino-7-)
+6. [PROVIDED FUNCTIONS ](#provided-functions-)
+7. [PROBLEMS WITH YOUR IMPORT ](#problems-with-your-import-)
 --------------------------------------------------------------------
 ********************************************************************
 --------------------------------------------------------------------
 
-## CONTACT {#contact}
+## CONTACT
 This code was developed to help our research at the Institut für Mechanik und Statik of the Universität der Bundeswehr München. The functionality of the code is of course 
 at the moment limited because its purpose is to deal with geometries, we are currently interested in. However, it can be extended to cover a wider variety. In the case that 
 your geometry cannot be imported, you can contact me under "michael.loibl@unibw.de" and we can discuss whether I can provide an update.
@@ -30,7 +32,18 @@ which is a subgroup of FEM using NURBS as basis functions.
 
 ------------------------------
 
-## EXPORT OF .STEP FILES FROM CAD {#export}
+## GET STARTED <a name="start"></a>
+The easiest way to get used to the code is to start with the script "test_step_import.m". Plotting functions are illustrating your import and help to check whether the import worked correctly. A set of really simple geometries is provided - they start with "geometry_". The import was also tested for more complex geometries. However, these files cannot be provided due to licensing reasons. In order to import a new geometry, you can simply change the jobname which defines the name of your .step file. You see automatically plots in the parametric and physical space. Thereby, you can easily check whether your import worked correctly. You can change the resolution of the plots:
+
+	resolution_param = 10;	% resolution of trimming curves in the parametric space
+	resolution_phys.surf = 2;	% resolution of surface in the physical space
+	resolution_phys.curv = 10;	%resolution of curve in the physical space
+
+[<div style="text-align: right">Back to the top</div>](#table-of-contents)
+
+------------------------------
+
+## EXPORT OF .STEP FILES FROM CAD
 The generation of .step files was performed and tested with the following CAD programs:
 - Rhino 7
 
@@ -49,25 +62,14 @@ the here documented import function only works if the parametric curve is part o
 
 ------------------------------
 
-### HOW TO START <a name="start"></a>
-Place new .step files in the folder "stp_geometries" or start with one of the existing geometries. The easiest way to get used to the code is to start with the script "test_step_import.m". 
-In order to import a new geometry, you can simply change the jobname which defines the name of your .step file. You see automatically plots in the parametric and physical space. Thereby, 
-you can easily check whether your import worked correctly. You can change the resolution of the plots:
-
-	resolution_param = resolution of trimming curves in the parametric space
-	resolution_phys.surf = resolution of surface in the physical space
-	resolution_phys.curv = resolution of curve in the physical space
-
-A set of really simple geometries can be found in the folder stp_geometries. The import was also tested for more complex geometries. However, these cannot be provided due to
-licensing reasons.
+## PROVIDED FUNCTIONS <a name="functions"></a>
+The important contribution is the "import_STEP.m" function in combination with the class definitions. The other functions are simply visualization tools to check whether the import worked properly. The functions are copied from another code and are not changed. Some of them are duplicates with only slightly changed inputs (this is not nice, but also nothing to care about in this context).
 
 [<div style="text-align: right">Back to the top</div>](#table-of-contents)
 
 ------------------------------
 
-## PROVIDED FUNCTIONS <a name="functions"></a>
-The important contribution is the "import_STEP.m" function in combination with the class definitions in the folder "class_def". The other functions in the folders "NURBS_functions" and 
-"plotting" are simply visualization tools to check whether the import worked properly. The functions in the folder "NURBS_functions" are copied from another code and are not changed.
-Some of them are duplicates with only slightly changed inputs (this is not nice, but also nothing to care about in this context).
+## PROBLEMS WITH YOUR IMPORT <a name="functions"></a>
+In case your geometry cannot be imported but is a NURBS surface, please contact me. I can try to extend the import function for your geometry.
 
 [<div style="text-align: right">Back to the top</div>](#table-of-contents)
