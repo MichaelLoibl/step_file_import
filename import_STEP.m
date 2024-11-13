@@ -27,11 +27,16 @@ index = strfind(file_loaded,'DATA;');
 file_loaded = file_loaded(index+5:end);
 index = strfind(file_loaded,'ENDSEC;');
 file_loaded = file_loaded(1:index-1);
+empty_spaces = 0; % number of empty spaces before the next #
+while ~strcmp(file_loaded(1),'#')
+    file_loaded = file_loaded(2:end);
+    empty_spaces = empty_spaces + 1;    % the number of empty spaces may differ from file to file and is therefore determined here; it is assumed that it is equal for all lines
+end
 
 %-----------------------------------
 % extract objects
 index = strfind(file_loaded,';');
-index_start = 4;
+index_start = 2;
 text = {};
 for i = 1:length(index)
     text_temp = file_loaded(index_start:index(i)-1);
@@ -42,7 +47,7 @@ for i = 1:length(index)
            char_nr = char_nr + 1;
     end
     text{str2double(identifier)} = text_temp(char_nr + 1:end); %#ok<AGROW>
-    index_start = index(i) + 4;
+    index_start = index(i) + empty_spaces + 2;
 end
 
 %-----------------------------------
