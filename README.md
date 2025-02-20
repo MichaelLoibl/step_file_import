@@ -16,7 +16,7 @@
 --------------------------------------------------------------------
 
 ## CONTACT
-This code was developed to help our research at the Institut for Engineering Mechanics and Structural Analysis of the University of the Bundeswehr Munich (Germany). The functionality of the code is of course 
+This code was developed to help our research at the Institut for Engineering Mechanics and Structural Analysis of the University of the Bundeswehr Munich (https://go.unibw.de/statik, Germany). The functionality of the code is of course 
 at the moment limited because its purpose is to deal with geometries, we are currently interested in. However, it can be extended to cover a wider variety. In the case that 
 your geometry cannot be imported, you can contact me under "michael.loibl@unibw.de" and we can discuss whether I can provide an update.
 
